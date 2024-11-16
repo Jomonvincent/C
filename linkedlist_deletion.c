@@ -7,32 +7,7 @@ struct node*next;
 };
 int main()
 {
-    struct node *head=NULL;
-                    struct node *newnode;
-                    struct node *temp;
-                    for(int p=1;p<=5;p++)
-                    {
-                        
-                        newnode=malloc(sizeof(struct node));
-                        printf("\nEnter the data of the %d node: ",p);
-                        scanf("%d",&newnode->data);
-                        if(head==NULL)
-                        {
-                            head=newnode;
-                            newnode->next=NULL;
-                        }
-                        else
-                        {
-                            temp=head;
-                            while(temp->next!=NULL)
-                            {
-                                temp=temp->next;
-                            }
-                            temp->next=newnode;
-                            newnode->next=NULL;
-                        }
-                    }
- 
+ struct node *head=NULL;
  char chdel;
  do{
  	int del;
