@@ -1,3 +1,4 @@
+//Program to implement queue operations
 #include<stdio.h>
 int main()
 {
@@ -15,22 +16,15 @@ int main()
         switch(ch)
         { 
             case 1:
-                printf("Enter the value to be inserted\n");
-                if(rear==n-1)
-                {
+                printf("Enter the value to be inserted: ");
+                if (rear == n - 1) {
                     printf("Queue overflow\n");
-                }
-                else if(front==-1 && rear==-1)
-                {
-                    front++;
+                } else {
+                    if (front == -1 && rear == -1) {
+                        front = 0; // Setting front to 0 for the first element
+                    }
                     rear++;
-                    scanf("%d",&a[rear]);
-                   
-                }
-                else
-                {
-                    rear++;
-                    scanf("%d",&a[rear]);
+                    scanf("%d", &a[rear]);
                 }
                 break;
             case 2:
