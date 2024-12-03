@@ -12,7 +12,7 @@ int main()
     struct node *newnode;
     struct node *current;
      do{
-        printf("\n1.Insertion\n2.Deletion\n3.Updation\n4.Display\nChoose an option:");
+        printf("\n1.Insertion\n2.Deletion\n3.Updation\n4.Display\n5.search\nChoose an option:");
         scanf("%d",&ch);
      	switch(ch)
         {
@@ -83,7 +83,7 @@ int main()
                                     if(loc<1 || loc>pos)
                                     {
                                         printf("\nInvalid input");
-                                        k=0;
+                                        k=0; 
                                     }
                                     else
                                     {
@@ -296,11 +296,30 @@ int main()
                     while(current!=NULL)
                     {
                         printf("\n %d | %p",current->data,(void *)current->next);
-                        current=current->next;
-                                    
+                        current=current->next;             
                     }
                 }
-                break;                  
+                break;    
+        case 5:
+        	int count=0,flag=0,s;
+        	printf("\nEnter the data value you want to search:");
+        	scanf("%d",&s);
+        	current=head;
+        	while(current!=NULL)
+        	{	
+      			count++;
+        		if(s==current->data)
+        		{
+        			printf("\n%d found at position %d ",current->data,count);
+        			flag=1;
+        		}
+        		current=current->next;
+        	}           
+        	if(flag==0)
+        	{
+        		printf("\n%d not found at any position",s);
+        	}   
+        	break;
         default:
                 printf("Invalid choice\n");
         }
