@@ -12,13 +12,13 @@
 		struct node *rear=NULL;
 		struct node *newnode;
 		struct node *current=NULL;
-		int op;
+		int op,count,flag,s;
 		char ch;
 
 		do
 		{
-				printf("Implementation of Queue using LinkedList");
-		printf("\n1.insertion\n2.Deletion\n3.Display\nEnter your choice: ");
+		printf("Implementation of Queue using LinkedList");
+		printf("\n1.insertion\n2.Deletion\n3.Display\n4.Search\nEnter your choice: ");
 		scanf("%d",&op);
 			switch(op)
 			{
@@ -59,7 +59,7 @@
 					}
 					break;
 				case 3:
-					if(top==NULL && rear==NULL)
+					if(top==NULL && 	rear==NULL)
 					{
 						printf("\nQueue is empty");
 					}
@@ -74,6 +74,27 @@
 					}
 					
 					break;
+				 case 4:
+						count=0;
+						flag=0;
+						printf("\nEnter the data value you want to search:");
+						scanf("%d",&s);
+						current=top;
+						while(current!=NULL)
+						{	
+							count++;
+							if(s==current->data)
+							{
+								printf("\n%d found at position %d ",current->data,count);
+								flag=1;
+							}
+							current=current->next;newnode
+						}           
+						if(flag==0)
+						{
+							printf("\n%d not found at any position",s);
+						}   
+                		break;
 				default:
 					printf("\nINvalid input");
 			}
