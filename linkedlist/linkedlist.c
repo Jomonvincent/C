@@ -6,7 +6,7 @@ struct node{
 };
 int main()
 {
-    int ch,del;
+    int ch,del,count,flag,s;
     char chin,chdel,op,chup;
     struct node *head=NULL;
     struct node *newnode;
@@ -301,25 +301,26 @@ int main()
                 }
                 break;    
         case 5:
-        	int count=0,flag=0,s;
-        	printf("\nEnter the data value you want to search:");
-        	scanf("%d",&s);
-        	current=head;
-        	while(current!=NULL)
-        	{	
-      			count++;
-        		if(s==current->data)
-        		{
-        			printf("\n%d found at position %d ",current->data,count);
-        			flag=1;
-        		}
-        		current=current->next;
-        	}           
-        	if(flag==0)
-        	{
-        		printf("\n%d not found at any position",s);
-        	}   
-        	break;
+                count=0;
+                flag=0;
+                printf("\nEnter the data value you want to search:");
+                scanf("%d",&s);
+                current=head;
+                while(current!=NULL)
+                {	
+                    count++;
+                    if(s==current->data)
+                    {
+                        printf("\n%d found at position %d ",current->data,count);
+                        flag=1;
+                    }
+                    current=current->next;
+                }           
+                if(flag==0)
+                {
+                    printf("\n%d not found at any position",s);
+                }   
+                break;
         default:
                 printf("Invalid choice\n");
         }
