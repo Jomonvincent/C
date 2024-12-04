@@ -88,7 +88,7 @@
 								printf("\n%d found at position %d ",current->data,count);
 								flag=1;
 							}
-							current=current->next;newnode
+							current=current->next;
 						}           
 						if(flag==0)
 						{
