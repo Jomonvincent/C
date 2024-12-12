@@ -13,6 +13,18 @@ struct node *newnode;
 struct node *current;
 struct node *temp;
 
+
+int display()
+{
+	int k=0;
+	current=head;
+	while(current!=NULL)
+	{
+		k++;
+		printf("\n %d : %d | %p ",k,current->data,(void*)current->next);
+		current=current->next;
+	}
+}
 void insertion()
 {
 	int pos,loc,inop;
@@ -61,7 +73,7 @@ void insertion()
 			printf("\n %d | %p inserted at the begining",tail->data,(void *)tail->next);
 			break;
 		case 3:
-		    int display();
+		    display();
 			if(head==NULL)
 			{
 				head=tail=newnode;
@@ -71,7 +83,7 @@ void insertion()
 			}
 			else
 			{
-				printf("Enter the position of the node you want to insert:");
+				printf("\nEnter the position of the node you want to insert:");
 				scanf("%d",&loc);
 				if(loc<1)
 				{
@@ -106,7 +118,7 @@ void insertion()
     			    }
     			    current->next=newnode;
     			}
-    			printf(" %d | %p inserted at position %d ",newnode->data,(void *)newode->next,loc);
+    			printf(" %d | %p inserted at position %d ",newnode->data,(void *)newnode->next,loc);
 			}
             break; 
 		default:
@@ -123,7 +135,7 @@ void deletion()
 		case 1:
 		    if(head==NULL)
 		    {
-		        print("\nDLL is empty")
+		        printf("\nDLL is empty");
 		    }
 		    else
 		    {
@@ -156,7 +168,7 @@ void deletion()
     			}
     			else
     			{
-    			    head=NULL:
+    			    head=NULL;
     			}
     			printf("\nlast node %d | %p deleted from the DLL",current->data,(void*)current->next);
     			free(current);
@@ -223,21 +235,48 @@ void deletion()
 	}
 }
 
-void update()
+void updation()
 {
-	
-}
-void display()
-{
-	int k=0;
-	current=head;
-	while(current!=NULL)
+	int uploc,updata,k=1,pos=1;
+	if(head==NULL)
 	{
-		k++;
-		printf("\n %d : %d | %p ",k,current->data,(void*)current->next);
-		current=current->next;
+		printf("\nDLL is empty,updation not possible");
+	}
+	else
+	{
+		current=head;
+		while(current!=NULL)
+		{
+			printf("\n%d : %d | %p ",k,current->data,(void *)current->next);
+			current=current->next;
+			k++;
+		}
+		printf("\nEnter the position of the node you want to update: ");
+		scanf("%d",&uploc);
+		if(uploc>=1 && uploc<k)
+		{
+			printf("\nEnter the new data:");
+			scanf("%d",&updata);
+			current=head;
+			while(current!=NULL)
+			{
+				if(pos==uploc)
+				{
+					current->data=updata;
+					printf("\nnode at position %d updated to %d",uploc,updata);
+					return;	
+				}
+				current=current->next;
+				pos++;
+			}
+		}
+		else
+		{
+			printf("\nInvalid position ,please enter a valid position(1-%d)",k-1);	
+		}
 	}
 }
+
 int search(int sh)
 {
 	int pos=1;
@@ -247,7 +286,7 @@ int search(int sh)
 	{
 		if(sh==current->data)
 		{
-			printf("%d found at %pth location",sh,pos);
+			printf("%d found at %d th posiiton",sh,pos);
 			found=1;
 		}
 		current=current->next;
@@ -262,9 +301,9 @@ int search(int sh)
 
 int main()
 {
-	int op,inop,indel,inup;
+	int op,inop,indel,inup,sh;
 	char ch;
-	printf("Doubly LinkedList");
+	printf("\nDoubly LinkedList");
 	do
 	{
 		printf("\n1.insertion\n2,Deletion\n3.Updation\n4.Display\n5.Search");
