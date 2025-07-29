@@ -17,6 +17,10 @@ struct node *temp;
 int display()
 {
 	int k=0;
+	if head==NULL
+	{
+		print("DLL is empty");
+	}
 	current=head;
 	while(current!=NULL)
 	{
